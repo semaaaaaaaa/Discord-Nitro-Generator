@@ -28,14 +28,14 @@ namespace Discord_Nitro_Generator
                     if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"Valid invite || discord.gift/{randomString}");
+                        Console.WriteLine($"Valid gift || discord.gift/{randomString}");
                     }
                 }
                 
                 catch (System.Exception)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Invalid invite || discord.gift/{randomString}");
+                    Console.WriteLine($"Invalid gift || discord.gift/{randomString}");
                 }
             }
 
