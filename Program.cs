@@ -19,23 +19,23 @@ namespace Discord_Nitro_Generator
             for (int i = 0; i < amount2; i++)
             {
 
-                string randomPassword = generator.RandomPassword();
+                string randomString = generator.RandomString();
                 try
                 {
 
-                    HttpWebRequest myHttpWebRequest = (HttpWebRequest)HttpWebRequest.Create($"https://discordapp.com/api/v9/entitlements/gift-codes/{randomPassword}?with_application=false&with_subscription_plan=true");
+                    HttpWebRequest myHttpWebRequest = (HttpWebRequest)HttpWebRequest.Create($"https://discordapp.com/api/v9/entitlements/gift-codes/{randomString}?with_application=false&with_subscription_plan=true");
                     HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
                     if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"Valid invite || discord.gift/{randomPassword}");
+                        Console.WriteLine($"Valid invite || discord.gift/{randomString}");
                     }
                 }
                 
                 catch (System.Exception)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Invalid invite || discord.gift/{randomPassword}");
+                    Console.WriteLine($"Invalid invite || discord.gift/{randomString}");
                 }
             }
 
@@ -45,16 +45,16 @@ namespace Discord_Nitro_Generator
     public class RandomNitroGenerator
     {
         private static Random random = new Random();
-        public static string RandomString(int length)
+        public static string RandomGen(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
-        public string RandomPassword() {
+        public string RandomString() {
             var passwordBuilder = new StringBuilder();  
   
-            passwordBuilder.Append(RandomString(16));
+            passwordBuilder.Append(RandomGen(16));
       return passwordBuilder.ToString(); 
         }
         
