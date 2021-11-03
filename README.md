@@ -1,2 +1,2 @@
 # Discord-Nitro-Generator
-![](https://imgur.com/a/F0mhrm9)
+![](Discord-Nitro-Generator/Example.gif)
